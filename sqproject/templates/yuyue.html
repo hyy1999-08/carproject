@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Lambda Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="../static/css/bootstrap.css" rel='stylesheet' type='text/css'/>
+<link href="../static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<link rel="stylesheet" href="../static/css/jquery-ui.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top sticky-navigation">
+            <img src="../static/image/logofinal.png" width="200px" height="150px">
+            <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
+                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span data-feather="grid"></span>
+            </button>
+        </nav>
+				<div class="content">
+					<div class="reservations" id="reservations">
+						<div class="container">
+                            <div class="col-md-6 reservation-rightgrid wow bounceIn animated" data-wow-delay="0.4s" style="visibility: visible; -webkit-animation-delay: 0.4s;">
+                                <h5></h5>
+
+                                <div class="contact" >
+                                    <h5 style="color: #1d2124" >为了您更加方便快捷的预约停车位，请填写以下信息：</h5>
+
+									<div class="contact-text">
+
+									<h5>车主姓名</h5>
+										<input id="name"type="text" class="text" value="姓名" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'your name*';}">
+											</div>
+                                    <div class="contact-text">
+									<h5>电话</h5>
+										<input id="phone" type="text" class="text" value="电话号码" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)" onblur="this.v();" onFocus="this.value = '';">
+											</div>
+                                    <div class="contact-text">
+									<h5>车牌号</h5>
+										<input id="carplate" type="text" class="text" value="车牌号" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'your carplate*';}">
+											</div>
+                                    <div class="contact-text">
+									<h5>预约时间</h5>
+										<input id="time" type="text" class="text" value="预停留时间段" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'residence time*';}">
+											</div>
+										</div>
+
+										<input type="button"  onclick="yuyue()" class="btn btn-1 btn-1c" value="递交预约">
+                                        <br>
+                                        <br>
+                                        <input type="button" onclick="window.location='/'" class="btn btn-1 btn-1c" value="返回初始界面">
+
+								    </div>
+
+						</div>
+					</div>
+				</div>
+<script>
+    function yuyue() {
+
+
+            var uname=document.getElementById('name').value;
+         var tell=document.getElementById('phone').value;
+         var carplate=document.getElementById('carplate').value;
+         var time=document.getElementById('time').value;
+
+        $.ajax({
+             url: "/get_useradd",
+             data: {'uname':uname,'tell':tell,'carplate':carplate,'time':time},
+             type: "POST",
+             dataType: "json",
+             success:function (result) {
+                 if (result.result=="ok") {
+                     alert("申请成功，等待审批")
+                 }
+
+                },
+         })
+    }
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

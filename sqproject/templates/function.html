@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Favc-如你所想</title>
+        <meta name="description" content="Union is a beautiful Bootstrap 4 template for multipurpose landing pages." />
+        <!--Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i" rel="stylesheet">
+        <!--vendors styles-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Bootstrap CSS / Color Scheme -->
+        <link rel="stylesheet" href="../static/css/default.css" id="theme-color">
+        <!-- Bootstrap CSS / Color Scheme -->
+        <link rel="stylesheet" href="../static/css/home.css" id="theme-color">
+         <link rel="stylesheet" href="../static/css/ouystyle.css" id="theme-color">
+
+        <style>
+        .demo{
+                position:fixed;
+                top:0;
+                left: 0;
+                width:100%;
+                height:100%;
+                min-width: 1000px;
+                z-index:-10;
+                zoom: 1;
+                background-color: #fff;
+                background: url(../static/image/home1.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                -webkit-background-size: cover;
+                -o-background-size: cover;
+                background-position: center 0;
+            }
+
+.demot{
+                position:fixed;
+                top:-10px;
+                left: 0;
+                width:100%;
+                height:100%;
+                min-width: 1000px;
+                z-index:-10;
+                zoom: 1;
+
+
+                background-repeat: no-repeat;
+                background-size: cover;
+                -webkit-background-size: cover;
+                -o-background-size: cover;
+                background-position: center 0;
+            }
+
+        .demo1{
+                width: 100%;
+                height: 100%;
+                background-color: rgba(255,255,255,0.7);}
+        .demo2{
+
+                width: 100%;
+                background-color: rgba(255,255,255,0.5);
+        }
+
+        .div1{
+
+            width: 560px;
+            background-color: #fffaf5;
+        }
+    </style>
+    </head>
+    
+    <body>
+    <div class="demo">
+            <div class="demo1"></div>
+         </div>
+
+        <!--navigation-->
+        <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top sticky-navigation demo" >
+            <div class="demot">
+            <img src="../static/image/logofinal.png" width="150px" height="100px" >
+            <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" 
+                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span data-feather="grid"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse" >
+                <ul class="navbar-nav ml-auto" >
+
+                </ul>
+
+            </div>
+                </div>
+        </nav>
+
+        <!--hero header-->
+        <section class="pt-7 pt-md-8" id="home">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 mx-auto my-auto text-center">
+                        <img src="../static/image/biaoti.png" width="100%" >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- about section -->
+        <section  id="about" style="margin-top: 400px">
+            <div class="demo1">
+                <img src="../static/image/guanli.jpg" width="100%" height="50%" >
+            <div class="container">
+
+            <hr class="my-6"/>
+                <div class="row">
+                    <div class="col-md-7 mx-auto">
+                        <h2 class="dot-circle">管理车库</h2>
+                        </div>
+                </div>
+                <div align="center" style="margin-top: 0px">
+
+                <form >
+                    <div class="input-field">
+                        <input type='text' onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)" onblur="this.v();" id="maxamount" placeholder="请输入车库最大容量"/>
+                    </div>
+                    <br>
+
+                    <button type="button" onclick="givecarmaxamount()" class="waves-effect btn-large btn-large-white px-4 black-text rounded-0 buttonc">提交</button>
+                    </form>
+                <br>
+                    <p id="leftamount">车库最大容量：</p>
+                    <br>
+                     <button  onclick="window.location='/get_inshow?run=norun'" class="buttonc" id="upchargebtn" >查看入库记录</button>
+                    <br>
+                    <br>
+                    <button  onclick="window.location='/get_outshow?run=norun'" class="buttonc" id="upchargebtn" >查看出库记录</button>
+            </div>
+
+             <hr class="my-6"/>
+                <div class="row">
+
+                        <div class="review text-center">
+
+                    <div class="col-md-7 mx-auto">
+                        <h2 class="dot-circle" align="left">入库识别</h2>
+                        </div>
+                            <div style="width: 100%;height: 20px"></div>
+
+
+                            <div class="mt-4 d-flex flex-row " align="left">
+                                <canvas id="cvs" width="200" height="200"></canvas>
+                                <span class="btn upload">*<input type="file" class="upload_pic" id="upload"/></span>
+                            </div>
+                            <div style="width: 100%;height: 20px"></div>
+                        </div>
+
+                     <div class="review text-center">
+
+                            <div class="col-md-7 mx-auto">
+                        <h2 class="dot-circle" align="left">出库识别</h2>
+                        </div>
+                            <div style="width: 100%;height: 20px"></div>
+
+                            <div class="mt-4 d-flex flex-row"  align="right">
+                                <canvas id="cvsr" width="200" height="200" ></canvas>
+                                <span class="btn upload" >*<input type="file" class="upload_pic" id="uploadr"/></span>
+                            </div>
+                        </div>
+                 </div>
+
+                <div class="row">
+                    <div style="padding-left: 13px;position: absolute" class="div1">
+
+                        <h3>识别分析</h3>
+
+                        <p class="text-muted lead" id="strresult">
+                             识别结果
+                        </p>
+
+                    </div>
+
+
+                    <div style="position:relative;left: 580px" class="div1">
+                        <h3>识别分析</h3>
+                        <p class="text-muted lead" id="strresultr">
+                             识别结果
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <br>
+<div class="row">
+      <div style="padding-left: 13px;position: absolute" class="div1">
+          <h3>
+              品牌识别
+          </h3>
+      </div>
+      <div style="position:relative;left: 580px" class="div1">
+          <h3>
+              品牌识别
+          </h3>
+      </div>
+  </div>
+
+<div class="row">
+      <div style="padding-left: 13px;position: absolute" class="div1" >
+          <p class="text-muted lead" id="cartyperesult">
+              识别结果
+          </p >
+
+      </div>
+
+
+      <div  style="position:relative;left: 580px" class="div1">
+          <p class="text-muted lead" id="cartyperesultr">
+               识别结果
+          </p >
+      </div>
+  </div>
+                <div class="row">
+      <div style="padding-left: 13px;position: absolute" class="div1">
+          <h3>
+              车型识别
+          </h3>
+      </div>
+      <div style="position:relative;left: 580px" class="div1">
+          <h3>
+              车型识别
+          </h3>
+      </div>
+  </div>
+
+<div class="row">
+      <div style="padding-left: 13px;position: absolute" class="div1" >
+          <p class="text-muted lead" id="typeresult">
+              识别结果
+          </p >
+
+      </div>
+
+
+      <div  style="position:relative;left: 580px" class="div1">
+          <p class="text-muted lead" id="typeresultr">
+               识别结果
+          </p >
+      </div>
+  </div>
+  <br>
+  <br>
+                <div class="row">
+                    <div style="padding-left: 13px;position: absolute" class="div1">
+                        <h3>
+                            记录时间
+                        </h3>
+                    </div>
+                    <div style="position:relative;left: 580px" class="div1">
+                        <h3>
+                            记录时间
+                        </h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="padding-left: 13px;position: absolute" class="div1">
+                         <p class="text-muted lead" id="intimeresult" >
+                             入库时间
+                        </p>
+                        <button type="submit" class="mt-0 mb-3 button "  id="upleft" onclick="uploadsql()">
+                        确认后上传数据
+                        </button>
+
+                    </div>
+
+                  <div style="position: relative;left: 580px" class="div1">
+                           <p class="text-muted lead" id="outtimeresult" >
+                             出库时间
+                        </p>
+                    <button type="submit"  class="mt-0 mb-3 button " id="upright" onclick="uploadsqlr()">
+                        确认后上传数据
+                    </button>
+                  </div>
+             </div>
+
+                    <br>
+                    <br>
+                    <div class="row" >
+                   <div class="col-md-6 order-3 mx-auto border-top border-bottom mt-5 mt-md-0 py-4" >
+                        <div class="review text-center">
+                            <p class="quote">我们随时为您服务。</p>
+
+                        </div>
+                   </div>
+                     <div class="col-md-6 order-3 mx-auto border-top border-bottom mt-5 mt-md-0 py-4 row">
+
+                     </div>
+                    </div>
+                <div style="width: 100%;height: 100px"></div>
+            </div>
+            </div>
+        </section>
+    <img src="../static/image/yuyue.jpg" width="100%">
+
+           <section  id="about">
+               <div class="demo1">
+            <div class="container">
+
+
+                <div class="row">
+                    <div class="col-md-6 mx-auto border-top border-bottom mt-5 mt-md-0 py-4">
+                        <div class="review text-center">
+                            <div style="width: 100%;height: 150px"></div>
+                            <h3 class="quote">停车预约管理</h3 >
+<div class="mt-4 d-flex flex-row align-items-center justify-content-center">
+    <button onclick="window.location='/get_usershowfinal'" class="button">预约查看</button>
+    <button onclick="window.location='/get_submitshow'" class="button" style="margin-left: 10px;">审批预约</button>
+     <button onclick="window.location='/get_toshow'" class="button" style="margin-left: 10px;">审批结果</button>
+</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                        </div>
+
+                <div style="width: 100%;height: 200px;"></div>
+
+            </div>
+               </div>
+            </section>
+
+        <!--services section-->
+
+        <!--contact section-->
+        <section class="py-7" id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mx-auto text-center">
+                        <h2>Want to work with us?</h2>
+                        <div class="divider bg-primary mx-auto"></div>
+                        <p class="text-muted lead">
+                            Are you working on something great? We'd love to help make it happen.
+                        </p>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-8 mx-auto">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Your name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="email"  class="form-control" placeholder="Your email address">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="tel"  class="form-control" placeholder="Phone number">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="url"  class="form-control" placeholder="Your website">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <textarea rows="5"  class="form-control" placeholder="What are you looking for?"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <button onclick="send()" >send your message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.5.0/feather.min.js"></script>
+
+    <script>
+//获取上传按钮
+var input1 = document.getElementById("upload");
+
+if(typeof FileReader==='undefined'){
+     //result.innerHTML = "抱歉，你的浏览器不支持 FileReader";
+     input1.setAttribute('disabled','disabled');
+}else{
+     input1.addEventListener('change',readFile,false);
+     /*input1.addEventListener('change',function (e){
+     	console.log(this.files);//上传的文件列表
+     },false); */
+}
+function readFile(){
+	var file = this.files[0];//获取上传文件列表中第一个文件
+    fileObj=file;
+	if(!/image\/\w+/.test(file.type)){
+	//图片文件的type值为image/png或image/jpg
+		alert("文件必须为图片！");
+		return false;
+	}
+	// console.log(file);
+	var reader = new FileReader();//实例一个文件对象
+	reader.readAsDataURL(file);//把上传的文件转换成url
+	//当文件读取成功便可以调取上传的接口
+	reader.onload = function(e){
+		// console.log(this.result);//文件路径
+		// console.log(e.target.result);//文件路径
+		/*var data = e.target.result.split(',');
+		var tp = (file.type == 'image/png')? 'png': 'jpg';
+		var imgUrl = data[1];//图片的url，去掉(data:image/png;base64,)
+		//需要上传到服务器的在这里可以进行ajax请求
+		// console.log(imgUrl);
+		// 创建一个 Image 对象
+		var image = new Image();
+		// 创建一个 Image 对象
+		// image.src = imgUrl;
+		image.src = e.target.result;
+		image.onload = function(){
+			document.body.appendChild(image);
+		}*/
+
+		var image = new Image();
+		// 设置src属性
+		image.src = e.target.result;
+		var max=200;
+		// 绑定load事件处理器，加载完成后执行，避免同步问题
+		image.onload = function(){
+			// 获取 canvas DOM 对象
+			var canvas = document.getElementById("cvs");
+			// 如果高度超标 宽度等比例缩放 *=
+			/*if(image.height > max) {
+				image.width *= max / image.height;
+				image.height = max;
+			} */
+			// 获取 canvas的 2d 环境对象,
+			var ctx = canvas.getContext("2d");
+			// canvas清屏
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			// 重置canvas宽高
+			/*canvas.width = image.width;
+			canvas.height = image.height;
+			if (canvas.width>max) {canvas.width = max;}*/
+			// 将图像绘制到canvas上
+			// ctx.drawImage(image, 0, 0, image.width, image.height);
+			ctx.drawImage(image, 0, 0, 200, 200);
+			// 注意，此时image没有加入到dom之中
+
+		};
+		if (typeof (fileObj) == "undefined" || fileObj.size <= 0) {
+                   alert("请选择图片");
+                   return;
+               }
+               var formFile = new FormData();
+               formFile.append("action", "UploadVMKImagePath");
+               formFile.append("file", fileObj); //加入文件对象
+
+               //第一种  XMLHttpRequest 对象
+               //var xhr = new XMLHttpRequest();
+               //xhr.open("post", "/Admin/Ajax/VMKHandler.ashx", true);
+               //xhr.onload = function () {
+               //    alert("上传完成!");
+               //};
+               //xhr.send(formFile);
+
+               //第二种 ajax 提交
+
+               var data = formFile;
+               $.ajax({
+                   url: "/upload/",
+                   data: data,
+                   type: "Post",
+                   dataType: "json",
+                   cache: false,//上传文件无需缓存
+                   processData: false,//用于对data参数进行序列化处理 这里必须false
+                   contentType: false, //必须
+                   success: function (result) {
+                       $("#strresult").text(result.str);
+                       $("#intimeresult").text(result.time);
+                       $("#cartyperesult").text(result.type);
+                       $("#typeresult").text(result.ctype);
+                   },
+               })
+	}
+};
+
+</script>
+
+    <script type="text/javascript">
+function send() {
+    alert ("send successfully");
+
+}
+</script >
+
+
+        <script>
+//获取上传按钮
+var input = document.getElementById("uploadr");
+
+if(typeof FileReader==='undefined'){
+     //result.innerHTML = "抱歉，你的浏览器不支持 FileReader";
+     input.setAttribute('disabled','disabled');
+}else{
+     input.addEventListener('change',readFiler,false);
+     /*input1.addEventListener('change',function (e){
+     	console.log(this.files);//上传的文件列表
+     },false); */
+}
+function readFiler(){
+	var file= this.files[0];//获取上传文件列表中第一个文件
+    fileObj=file;
+	if(!/image\/\w+/.test(file.type)){
+	//图片文件的type值为image/png或image/jpg
+		alert("文件必须为图片！");
+		return false;
+	}
+	var reader = new FileReader();//实例一个文件对象
+	reader.readAsDataURL(file);//把上传的文件转换成url
+
+	reader.onload = function(e){
+
+
+		var image = new Image();
+		// 设置src属性
+		image.src = e.target.result;
+		var max=200;
+		// 绑定load事件处理器，加载完成后执行，避免同步问题
+		image.onload = function(){
+			var canvas = document.getElementById("cvsr");
+			var ctx = canvas.getContext("2d");
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			ctx.drawImage(image, 0, 0, 200, 200);
+		};
+		if (typeof (fileObj) == "undefined" || fileObj.size <= 0) {
+                   alert("请选择图片");
+                   return;
+               }
+               var formFile = new FormData();
+               formFile.append("action", "UploadVMKImagePath");
+               formFile.append("file", fileObj); //加入文件对象
+               var data = formFile;
+               $.ajax({
+                   url: "/uploadr/",
+                   data: data,
+                   type: "Post",
+                   dataType: "json",
+                   cache: false,//上传文件无需缓存
+                   processData: false,//用于对data参数进行序列化处理 这里必须false
+                   contentType: false, //必须
+                   success: function (result) {
+                       $("#strresultr").text(result.str);
+                       $("#outtimeresult").text(result.time);
+                       $("#cartyperesultr").text(result.type);
+                       $("#typeresultr").text(result.ctype);
+                   },
+               })
+	}
+};
+
+</script>
+
+<script>
+
+   function uploadsql(){
+         var carlicense= $("#strresult").text();
+         var carintime=$("#intimeresult").text();
+         var cartype=$("#cartyperesult").text();
+         $.ajax({
+                   url: "/uploadsql/",
+                   data: {'license':carlicense,'intime':carintime,"type":cartype},
+                   type: "Post",
+                   dataType: "json",
+                   success: function (result) {
+                       if (result.result=="ok"){
+                            alert("入库成功");
+                            window.location.href=("/get_inshow?carplate="+result.carlicense+"&intime="+result.intime+"&type="+result.type+'&run='+'run');
+                       }
+                      else{
+                          alert("该车入库异常");
+
+                       }
+                   },
+               })
+    };
+   function uploadsqlr() {
+        var carlicense=$("#strresultr").text();
+        var carouttime=$("#outtimeresult").text();
+        var cartype=$("#cartyperesultr").text();
+          $.ajax({
+                   url: "/uploadsqlr/",
+                   data: {'license':carlicense,'outtime':carouttime,'type':cartype},
+                   type: "Post",
+                   dataType: "json",
+                   success: function (result) {
+                       if (result.result=="ok"){
+                            alert("离库成功");
+                            $("#chargeresult").text("收费："+result.charge);
+                           window.location.href=('/get_outshow?carplate='+result.carlicense+'&outtime='+result.outtime+'&type='+result.type+'&run='+'run');
+                       }
+                      else{
+                          alert("该车离库异常")
+
+                       }
+                   },
+               })
+    };
+    function givecarmaxamount() {
+
+         var  input = document.getElementById("maxamount").value;
+         $.ajax({
+             url: "/get_caramount/",
+             data: {'maxamount':input},
+             type: "POST",
+             dataType: "json",
+             success:function (result) {
+                   $("#leftamount").text("车库最大容量："+result.carmaxamount);
+                },
+         })
+    }
+
+</script>
+        </body>
+</html>

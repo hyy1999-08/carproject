@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录-进入系统</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/materialize.css">
+    <link rel="stylesheet" href="../static/css/tooplate.css">
+</head>
+
+<body id="login">
+    <div class="container">
+        <div class="row tm-register-row tm-mb-35">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 tm-login-l">
+                <form id="form" class="tm-bg-black p-5 h-100">
+                    <div class="input-field">
+                        <input placeholder="用户名" id="username" name="username" type="text" class="validate">
+                    </div>
+                    <div class="input-field mb-5">
+                        <input placeholder="密码" id="password" name="password" type="password" class="validate">
+                    </div>
+                    <div class="tm-flex-lr">
+                        <button onclick="checkPwd()" class="waves-effect btn-large btn-large-white px-4 black-text rounded-0">登录</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 tm-login-r">
+                <header class="font-weight-light tm-bg-black p-5 h-100">
+                    <h3 class="mt-0 text-white font-weight-light">登录系统</h3>
+                    <p>请输入您的用户名和密码，以便您方便快捷地使用本产品。</p>
+                    <p class="mb-0">感谢您选择我们！&nbsp (๑ơ ω ơ๑)</p>
+                </header>
+            </div>
+        </div>
+        <div class="row">
+
+        </div>
+        <footer class="row tm-mt-big mb-3">
+
+        </footer>
+    </div>
+
+    <script src="../static/js/jquery-3.2.1.slim.min.js"></script>
+    <script src="../static/js/materialize.min.js"></script>
+    <script src="../static/js/test.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('select').formSelect();
+        });
+    </script>
+    <script>
+        $("#form").submit(function (e) {
+            e.preventDefault();
+        });
+        function checkPwd() {
+          var  input1 = document.getElementById("username");
+          var  input2 = document.getElementById("password");
+          var  password = input2.value;
+          var  username = input1.value;
+            $.getJSON("logincheck?name="+username+"&password="+password,function (res) {
+                if(res.result=="ok"){
+                    alert("登录成功");
+                    window.location.href="/get_home";
+                    }
+                    else {
+                        alert("登录失败");
+                    }
+                });
+        }
+    </script>
+</body>
+
+
+
+</html>

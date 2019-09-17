@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Lambda Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="../static/css/bootstrap.css" rel='stylesheet' type='text/css'/>
+<link href="../static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+         <link rel="stylesheet" href="../static/css/ouystyle.css" id="theme-color">
+<link rel="stylesheet" href="../static/css/jquery-ui.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top sticky-navigation">
+            <img src="../static/image/logofinal.png" width="200px" height="150px">
+            <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
+                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span data-feather="grid"></span>
+            </button>
+        </nav>
+				<div class="content" align="center">
+					<div class="reservations" id="reservations">
+						<div class="container" >
+                                <h5></h5>
+
+                                <div class="contact" >
+                                        <h5 style="width: 40%">审批预约</h5>
+                                    <br>
+
+                                        <input id="uname" type="text"  class="text" width="100%" placeholder="审批姓名" >
+                                        <br>
+                                        <br>
+										<input  id="getname" type="button"  onclick="admit()" class="button" value="审批通过">
+                                        <br>
+                                        <br>
+                                        <input type="button" onclick="window.location='/get_home'" class="button" value="返回初始界面">
+	                                </div>
+
+
+						</div>
+					</div>
+				</div>
+<script>
+    function admit() {
+        var uname=document.getElementById('uname').value;
+        $.ajax({
+             url: "/get_admit",
+             data: {'uname':uname},
+             type: "POST",
+             dataType: "json",
+             success:function (result) {
+                 if (result.result=="ok") {
+                     alert("预约通过!")
+                 }
+
+                },
+         })
+    }
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

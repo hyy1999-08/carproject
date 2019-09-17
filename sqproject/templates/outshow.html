@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Favc-车库数据</title>
+    <meta name="description" content="Union is a beautiful Bootstrap 4 template for multipurpose landing pages."/>
+
+    <!--Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i" rel="stylesheet">
+
+    <!--vendors styles-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap CSS / Color Scheme -->
+    <link rel="stylesheet" href="../static/css/default.css" id="theme-color">
+
+
+    <link rel="stylesheet" href="../static/css/ouystyle.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <style>
+        table {
+            margin: auto
+        }
+    </style>
+</head>
+
+<body>
+
+<!--navigation-->
+<nav class="navbar navbar-expand-md navbar-light bg-white fixed-top sticky-navigation">
+    <img src="../static/image/logofinal.png" width="200px" height="150px">
+    <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
+            data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span data-feather="grid"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class=" button" onclick="window.location='/get_home'">返回管理界面</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<section class="py-7" id="contact">
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-8 mx-auto" style="text-align: center">
+                <table width="100%" id="detailTable" border="2px">
+                    <tr>
+                           
+                        <th>车牌信息</th>
+                           
+                        <th>出库时间</th>
+                           
+                        <th>车型</th>
+                         
+                    </tr>
+                           {% for foo in list  %}
+                     <tr>
+
+                            <th>{{ foo[0] }}</th>
+                           
+                            <th>{{ foo[1] }}</th>
+                           
+                            <th>{{ foo[2] }}</th>
+
+                    </tr>
+                    {% endfor %}
+                </table>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script type="text/javascript">
+    window.onload = function () {
+        createRow();
+    }
+
+    function getUrlParam(paramname) {
+        var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for (var i = 0; i < hashes.length; i++) {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+        return decodeURI(vars[paramname])
+    }
+
+
+    function createRow() {
+        var run=getUrlParam('run')
+        if (run == 'run') {
+            var carplate = getUrlParam('carplate')
+            var outtime = getUrlParam('outtime')
+            var type = getUrlParam('type')
+            var editTable = document.getElementById("detailTable");
+            var tr = document.createElement("tr");
+            var td0 = document.createElement("td");
+            var td1 = document.createElement("td");
+            var td2 = document.createElement("td");
+            td0.innerHTML = carplate
+            td1.innerHTML = outtime;
+            td2.innerHTML = type;
+            tr.appendChild(td0);
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            editTable.appendChild(tr)
+
+    }
+    }
+</script>
+
+<!--footer / contact-->
+<footer class="py-6 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto text-center">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#">Privacy</a></li>
+                    <li class="list-inline-item"><a href="#">Terms</a></li>
+                    <li class="list-inline-item"><a href="#">Affiliates</a></li>
+                    <li class="list-inline-item"><a href="#">Support</a></li>
+                    <li class="list-inline-item"><a href="#">Blog</a></li>
+                </ul>
+                <p class="text-muted small text-uppercase mt-4">
+                    Follow us on social media
+                </p>
+                <ul class="list-inline social social-dark social-sm">
+                    <li class="list-inline-item">
+                        <a href=""><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href=""><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href=""><i class="fa fa-google-plus"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href=""><i class="fa fa-dribbble"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-12 text-muted text-center small-xl">
+                &copy; 2019 Union - All Rights Reserved - More Information <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">Favc</a> -
+                Collect from
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!--scroll to top-->
+<div class="scroll-top">
+    <i class="fa fa-angle-up" aria-hidden="true"></i>
+</div>
+
+
+</body>
+</html>
